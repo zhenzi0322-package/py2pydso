@@ -2,7 +2,7 @@
   <h1>py2pydso</h1>
   <a href="https://pypi.org/project/py2pydso/"><img src="https://img.shields.io/pypi/v/py2pydso.svg" alt="PyPI version"></a>
   <a href="https://pypi.org/project/py2pydso/"><img src="https://img.shields.io/badge/Python-3.8~3.14-3776AB?logo=python&logoColor=white" alt="Python"></a>
-  <a href="https://github.com/zhenzi0322/py2pydso/blob/main/LICENSE"><img src="https://img.shields.io/pypi/l/py2pydso.svg" alt="License"></a>
+  <a href="https://github.com/zhenzi0322-package/py2pydso/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/py2pydso.svg" alt="License"></a>
 </p>
 
 > 将`Python`源文件编译为`.pyd/.so`原生扩展，以便分发和保护源代码。
