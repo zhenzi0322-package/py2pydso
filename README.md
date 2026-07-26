@@ -108,39 +108,6 @@ output/
 
 ### 3. 构建完整 wheel 包
 
-> 要求`setup.py`中要使用`ext_modules`。示例如下：
-
-```py
-import re
-from setuptools import setup, Extension, find_packages
-from pathlib import Path
-
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text(encoding="utf-8")
-
-
-def _collect_ext_modules() -> list:
-    """收集 loki_service 下所有 .py 文件（排除 __init__.py），声明为 Cython 扩展"""
-    pkg_dir = this_directory / "loki_service"
-    modules = []
-    for py_file in sorted(pkg_dir.rglob("*.py")):
-        if py_file.name == "__init__.py":
-            continue
-        rel = py_file.relative_to(this_directory).with_suffix("")
-        module_name = str(rel).replace("/", ".").replace("\\", ".")
-        modules.append(Extension(module_name, [str(py_file.relative_to(this_directory))]))
-    return modules
-
-# 元数据和依赖统一由 pyproject.toml 管理，setup.py 仅负责 Cython ext_modules
-setup(
-    version="1.0.0",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    packages=find_packages(),
-    ext_modules=_collect_ext_modules(),
-)
-```
-
 ```bash
 python -m py2pydso package --package-name loki_service --keep-tmp
 ```
